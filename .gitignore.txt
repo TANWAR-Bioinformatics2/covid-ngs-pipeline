@@ -1,0 +1,11 @@
+work
+.nextflow*
+.idea
+output
+condaenv
+.ipynb_checkpoints
+benchmark*
+venv
+covid_R1_fastq_test
+covid_R2_fastq_test
+**/__pycache__
