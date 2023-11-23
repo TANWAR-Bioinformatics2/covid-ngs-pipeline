@@ -1,0 +1,1 @@
+# covid-ngs-pipeline2

@@ -25,8 +25,8 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          /home/runner/work/covid-ngs-pipeline/covid-ngs-pipeline/work/conda
-        key: ${{ runner.os }}-covid-ngs-pipeline
+          /home/runner/work/covid-ngs-pipeline2/covid-ngs-pipeline2/work/conda
+        key: ${{ runner.os }}-covid-ngs-pipeline2
     - name: Run tests
       run: |
         export NXF_VER=22.04.5
