@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -30,4 +30,4 @@ jobs:
     - name: Run tests
       run: |
         export NXF_VER=22.04.5
-        make
+       
