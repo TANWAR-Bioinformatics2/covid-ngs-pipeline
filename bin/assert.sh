@@ -13,7 +13,7 @@
 ##	- https://natelandau.com/bash-scripting-utilities/
 ## author: Mark Torok
 ##
-## date: 07. Dec. 2016
+## date: 05. Dec. 2023
 ##
 ## license: MIT
 ##
