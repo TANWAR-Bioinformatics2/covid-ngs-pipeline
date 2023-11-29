@@ -8,7 +8,7 @@ clean:
 
 test:
 	bash tests/scripts/test_00_help.sh
-	#bash tests/scripts/test_00_initialize.sh
+	bash tests/scripts/test_00_initialize.sh
 	bash tests/scripts/test_02.sh
 	bash tests/scripts/test_01.sh
 	bash tests/scripts/test_03.sh
