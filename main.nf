@@ -3,7 +3,7 @@
 nextflow.enable.dsl = 2
 
 include { BWA_INDEX; SNPEFF_DATABASE } from './modules/00_prepare_annotation'
-include { READ_TRIMMING_PAIRED_END; READ_TRIMMING_SINGLE_END } from './modules/01_fastp'
+include { READ_TRIMMING_PAIRED_END; READ_TRIMMING_SINGLE_END } from './modules/01_fastp.gz'
 include { ALIGNMENT_PAIRED_END; ALIGNMENT_SINGLE_END } from './modules/02_bwa'
 include { BAM_PREPROCESSING; COVERAGE_ANALYSIS; PRIMER_TRIMMING_IVAR } from './modules/03_bam_preprocessing'
 include { VARIANT_CALLING_BCFTOOLS; VARIANT_CALLING_LOFREQ ; VARIANT_CALLING_GATK ;
@@ -73,6 +73,10 @@ if (params.output == false) {
 }
 if (params.fastq1 != false && params.fasta != false) {
     log.error "provide only --fastq1 or --fasta"
+    exit 1
+}
+if (params.fastq2 != false && params.fasta != false) {
+    log.error "provide only --fastq2 or --fasta"
     exit 1
 }
 if (params.input_fastqs_list != false && params.input_fastas_list != false) {
