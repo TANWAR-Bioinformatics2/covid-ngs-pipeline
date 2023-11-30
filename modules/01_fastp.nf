@@ -21,7 +21,6 @@ process READ_TRIMMING_PAIRED_END {
 script:
 fq_1_paired = name + '_R1_P.fastq.gz'
 fq_2_paired = name + '_R2_P.fastq.gz'
-
     """
     fastp \
     --in1 ${fastqs[0]} \
