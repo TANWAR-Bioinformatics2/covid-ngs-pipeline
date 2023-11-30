@@ -6,6 +6,6 @@ condaenv
 .ipynb_checkpoints
 benchmark*
 venv
-covigator_fastq_test
-covigator_fasta_test
+covid_fastq_test
+covid_fasta_test
 **/__pycache__
