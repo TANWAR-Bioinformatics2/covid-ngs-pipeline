@@ -239,8 +239,6 @@ if (params.input_bams_list || params.bam) {
             .set { preprocessed_bams }
     }
 }
-
-
 if (params.skip_bcftools && params.skip_gatk && params.skip_ivar && params.skip_lofreq) {
     log.error "enable at least one variant caller"
     exit 1
@@ -252,7 +250,6 @@ if (params.lineage_mode && input_fastqs) {
     log.error "lineage mode is only supported with fasta or VCF input"
     exit 1
 }
-
 workflow {
     if (params.lineage_mode) {
         log.info "Running lineage mode. In this mode only Pangolin is executed on either fasta or VCF"
