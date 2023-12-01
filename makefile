@@ -7,7 +7,7 @@ clean:
 
 test:
 	bash tests/scripts/test_00_help.sh
-	#bash tests/scripts/test_00_initialize.sh
+	bash tests/scripts/test_00_initialize.sh
 	bash tests/scripts/test_02.sh
 	bash tests/scripts/test_01.sh
 	bash tests/scripts/test_03.sh
@@ -25,3 +25,6 @@ test:
 	bash tests/scripts/test_15.sh
 	bash tests/scripts/test_16.sh
 	bash tests/scripts/test_python_unit_tests.sh
+check:
+	test -s output/tests/sample1/test_data_1.fastq.gz || { echo "Missing test 1 output file!"; exit 1; }
+	test -s output/tests/sample2/test_data_2.fastq.gz || { echo "Missing test 2 output file!"; exit 1; }
