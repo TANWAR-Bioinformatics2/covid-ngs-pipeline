@@ -72,8 +72,8 @@ if (params.output == false) {
     log.error "--output is required"
     exit 1
 }
-if (params.fastq1 != false && params.fasta != false) {
-    log.error "provide only --fastq1 or --fasta"
+if (params.fastq1 != false && params.fastq2 != false) {
+    log.error "provide only --fastq1 or --fastq2"
     exit 1
 }
 if (params.input_fastqs_list != false && params.input_fastas_list != false) {
@@ -127,7 +127,7 @@ if (params.input_fastqs_list != false || params.fastq1 != false) {
     if (params.fastq1 != false && params.fastq2 == false) {
         library = "single"
     }
-    else if (params.fastq1 != false && params.fastq2 != false) {
+    else if (params.fastq2 != false && params.fastq2 != false) {
         library = "paired"
     }
     else if (params.input_fastqs_list && library == false) {
