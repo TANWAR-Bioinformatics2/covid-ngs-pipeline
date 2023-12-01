@@ -40,7 +40,7 @@ process READ_TRIMMING_SINGLE_END {
     conda (params.enable_conda ? "bioconda::fastp=0.20.1" : null)
 
     input:
-        tuple val(name), file(fastq1)
+        tuple val(name), file(fastqs)
 
     output:
         tuple val(name), file("${fastq1.baseName}.trimmed_1.fq.gz")
