@@ -43,7 +43,8 @@ process READ_TRIMMING_SINGLE_END {
         tuple val(name), file(fastq1)
 
     output:
-        tuple val(name), file("${fastq1.baseName}.trimmed.fq.gz")
+        tuple val(name), file("${fastq1.baseName}.trimmed_1.fq.gz")
+        tuple val(name), file("${fastq2.baseName}.trimmed_2.fq.gz")
         file("${name}.fastp_stats.json")
         file("${name}.fastp_stats.html")
 
@@ -51,7 +52,9 @@ process READ_TRIMMING_SINGLE_END {
     # --input_files needs to be forced, otherwise it is inherited from profile in tests
     fastp \
     --in1 ${fastq1} \
-    --out1 ${fastq1.baseName}.trimmed.fq.gz \
+    --in1 ${fastq2} \
+    --out1 ${fastq1.baseName}.trimmed_1.fq.gz \
+    --out1 ${fastq2.baseName}.trimmed_2.fq.gz \
     --json ${name}.fastp_stats.json \
     --html ${name}.fastp_stats.html
     """
