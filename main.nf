@@ -91,7 +91,7 @@ if (params.reference == false) {
     skip_sarscov2_annotations = params.skip_sarscov2_annotations
 }
 else {
-    log.info "Using custom reference genome: ${params.reference}. Preparing references to be used with covigator pipeline"
+    log.info "Using custom reference genome: ${params.reference}. Preparing references to be used with covid pipeline"
     reference = params.reference    // do not put into a file as we need the indices
     gff = params.gff ? file(params.gff) : false
     snpeff_organism = params.snpeff_organism
