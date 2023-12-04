@@ -28,7 +28,8 @@ test:
 check:
 	test -s output/tests/sample1/test_data_1.fastq.gz || { echo "Missing test 1 output file!"; exit 1; }
 	test -s output/tests/sample2/test_data_2.fastq.gz || { echo "Missing test 2 output file!"; exit 1; }
-	test -s output/tests/sample1/test_data_1.fasta || { echo "Missing test 1 output file!"; exit 1; }
+	
+        test -s output/tests/sample1/test_data_1.fasta || { echo "Missing test 1 output file!"; exit 1; }
 	test -s output/tests/sample1/test_data_2.fasta || { echo "Missing test 1 output file!"; exit 1; }
 	test -s output/tests/sample1/test_data_1.fastq || { echo "Missing test 1 output file!"; exit 1; }
 	test -s output/tests/sample1/test_data_2.fastq || { echo "Missing test 1 output file!"; exit 1; }
