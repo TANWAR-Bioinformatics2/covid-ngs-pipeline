@@ -3,16 +3,20 @@ params.cpus = 1
 params.output = "."
 
 
-process FASTP{
+process READ_TRIMMING_PAIRED_END {
     cpus params.cpus
     memory params.memory
-    publishDir "${params.outputttt}/adapterTrimmingggt", mode: 'copy'
+    publishDir "${params.output}", mode: "copy", pattern: "*fastp_stats*"
+    tag "${name}"
+
+    conda (params.enable_conda ? "bioconda::fastp=0.20.1" : null)
+
 
     input:
-        tuple val(sid), path(reads)   
+        tuple val(name), path(fastqs)   
 
     output:
-        tuple val(name), file(fq_1_paired), file(fq_2_paired), emit: trimmed_reads
+        tuple val(name), file(fq_1_paired), file(fq_2_paired), emit: trimmed_fastqs
                 file("${name }.fastp_stats.json")
                 file("${name }.fastp_stats.html")
 
@@ -21,7 +25,7 @@ process FASTP{
     fq_2_paired = name + 'R2_P.fastq.gz'
     """
     fastp \
-    --in1 ${fastqs [0]} \
+    --in1 ${fastqs[0]} \
     --in2 ${fastqs[1]}\
     --out1 $fq_1_paired \
     --out2 $fq_2_paired \
