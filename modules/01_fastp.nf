@@ -42,10 +42,10 @@ process READ_TRIMMING_SINGLE_END {
     conda (params.enable_conda ? "bioconda::fastp=0.20.1" : null)
 
     input:
-        tuple val(name), file(fastq1)
+        tuple val(name), file(fastqs)
 
     output:
-        tuple val(name), file("${fastq1.baseName}.trimmed.fq.gz")
+        tuple val(name), file("${fastq1.baseName}.trimmed.fq.gz"), file("${fastq1.baseName}.trimmed.fq.gz")
         file("${name}.fastp_stats.json")
         file("${name}.fastp_stats.html")
 
@@ -53,7 +53,9 @@ process READ_TRIMMING_SINGLE_END {
     # --input_files needs to be forced, otherwise it is inherited from profile in tests
     fastp \
     --in1 ${fastq1} \
+   --in1 ${fastq2} \
     --out1 ${fastq1.baseName}.trimmed.fq.gz \
+    --out1 ${fastq2.baseName}.trimmed.fq.gz \
     --json ${name}.fastp_stats.json \
     --html ${name}.fastp_stats.html
     """
